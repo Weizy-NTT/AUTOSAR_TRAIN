@@ -1,0 +1,15 @@
+Ex1 
+Both fixes involve assigning pointers and ensuring that the pointer's data type matches the data type it points to.
+For specific:
+- s = (char **)&foo;   
+s is pointer to pointer so the value assigned for this pointer is address of a pointer 
+&foo just address of whole string not address of pointer so we need to cast it to address of pointer to pointer 
+=> compiler will assumpt address of whole string as addres of pointer 
+- c = (char *) &s[0]; 
+Similar like above case:
+because in print command it fix *c so c must be point to address of first character at this string
+=> &s[0]  is address of the first string and we must cast &s[0] to 1level pointer => compiler will assumpt &s[0] is address of 1 character.
+
+Ex2.
+Mainly an exercise to get familiar with function pointers as well as the mindset of callback functions to stratify the program.
+The program allows the user to enter an account and will respond to the user based on the value the user enters.

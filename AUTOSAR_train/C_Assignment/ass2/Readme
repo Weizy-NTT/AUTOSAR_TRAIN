@@ -1,0 +1,7 @@
+********************************Notice************************************
+In ex1 and ex3 I use folder User_handling for handle about undefined behavior of user.
+
+********************************Description*******************************
+ex1: The purpose of this exercise 1 is to practice dynamic memory allocation and pointer manipulation, ensuring efficient memory usage and understanding how to access and manage memory addresses in C programming.
+ex2: The purpose of this exercise 2 is to write a function to allocate memory, but if the input is a first-level pointer, then a secondary pointer must be created to allocate and type-cast its address to the input pointer.
+ex3: The purpose of this exercise 3 is just write a function to calculate the absolute value of 2 numbers.

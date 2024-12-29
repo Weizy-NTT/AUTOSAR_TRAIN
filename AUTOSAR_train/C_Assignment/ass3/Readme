@@ -1,0 +1,10 @@
+Here are 2 exercises of assignment 3 
+Description:
+Both exercises, as I understand them, are based on the ideas of two data structures: vector and linked list.
+
+Ex 1 is a vector with an initial array that is statically allocated and the addition mechanism is also based on the size attribute.
+    - In add mechanism you must input position that must be less or equal size at runtime.
+
+Ex 2 is a linked list that manages an array, so you only need to use the next pointers in the struct node to point to consecutive memory areas of the array.
+About sorting i just use ascending order for bove exercises.
+

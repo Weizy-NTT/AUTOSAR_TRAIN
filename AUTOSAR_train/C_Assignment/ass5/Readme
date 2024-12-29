@@ -1,0 +1,32 @@
+***************************************Descripton**************************************
+This program is designed to parse and validate Intel HEX files. It identifies errors in individual records and ensures the file adheres to the Intel HEX format.
+***************************************Design******************************************
+Intel HEX File Processing Flow
+1. Open File
+2. Process Each Record
+	2.1. Parse Fields: Each line is split into fields (Byte Count, Address, Record Type, Data, Checksum) using the parseRecord function.
+	2.2. Error Checking
+3. Calculate Absolute Memory Address
+4. Print Results
+**************************************User manual**************************************
+1. Input hexfile which you wanna test in binary.hex
+2. run program
+
+I got example for you with my sample when i input wrong line before EOF
+Here is output
+ABS Address: 0x0013, Data: AC12AD13AE10AF1112002F8E0E8F0F22
+ABS Address: 0x0003, Data: E50B250DF509E50A350CF50812001322
+ABS Address: 0x0000, Data: 020023
+ABS Address: 0x0023, Data: 787FE4F6D8FD758113020003
+ABS Address: 0x002F, Data: EFF88DF0A4FFEDC5F0CEA42EFEEC88F0
+ABS Address: 0x003F, Data: A42EFE22
+ABS Address: 0x0100, Data: 214601360121470136007EFE09D21901
+ABS Address: 0x0110, Data: 2146017E17C20001FF5F160021480119
+ABS Address: 0x0120, Data: 194E79234623965778239EDA3F01B2CA
+ABS Address: 0x0130, Data: 3F0156702B5E712B722B732146013421
+Checksum error! Expected: 0x41, Got: 0x40
+Failed to process the file. Either the file contains invalid records or the EOF record is missing.
+
+- Use "make run" to run
+- Use "make" to build
+- Use "make clean" to remove built files

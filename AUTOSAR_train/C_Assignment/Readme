@@ -1,0 +1,8 @@
+**************User manual********************
+For each assignment you just cd to which ass you wanna run 
+- Use "make" to build all program :
+    If it got 2 exercises in this assignment:
+        + Use "make ex1" to run ex1 program
+        + Use "make ex2" to run ex2 program
+
+- Use "make clean" to remove all built files

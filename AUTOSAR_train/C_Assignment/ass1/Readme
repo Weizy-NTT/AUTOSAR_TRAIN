@@ -1,0 +1,26 @@
+************************** Design *****************************
+I chose Linked List instead of an array to implement the program for the following two main reasons:
+
+- Dont require pre-allocating memory avoiding both memory waste and limitations.
+=> Linked List can store data of unlimited size
+
+- Adding or removing elements only requires updating pointers, unlike arrays which may involve shifting elements.
+=> This structure is ideal for problems requiring frequent modifications (insertions, deletions, sorting).
+
+************************** User manual ************************
+Enter ‘c’ to create an integer array (If there is an array, clear the data of the old array).
+Enter ‘p’ to print the array (If the array has no value, report the array is empty).
+Enter ‘i’ to add an element to the array at the kth position decided by the user.
+Enter ‘d’ to delete an element at the kth position (If position k does not contain a value, report that there is no element k).
+Enter ‘s’ to sort the array in ascending order.
+Enter ‘x’ to sort in descending order.
+Enter ‘t’ to search for a number x in the array (x entered from the keyboard)?
+If you enter ‘e’, exit the program.
+
+During runtime if user input wrong value => Input again
+
+************************** Notice *****************************
+Use command for build and run
+- Use "make" command to build.
+- Use "make run" to run program after step build.
+- Use "make clean" to clear all built files.
