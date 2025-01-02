@@ -1,0 +1,88 @@
+@startuml StudentManagement
+
+class StudyResult {
+    - semesterName : String
+    - semesterAverage : double
+    + StudyResult(semesterName: String, semesterAverage: double) 
+    + ~StudyResult() 
+    + getSemesterName() : String
+    + getSemesterAverage() : double
+}
+
+abstract class Student {
+    - studentID : String
+    - fullName : String
+    - dateOfBirth : String
+    - admissionYear : int
+    - entryScore : double
+    - studyResults : Vector<StudyResult>
+    + Student(studentID: String, fullName: String, dateOfBirth: String, admissionYear: int, entryScore: double)
+    + virtual ~Student() 
+    + virtual showInfor() = 0 
+    + getStudentID() : String
+    + getFullName() : String
+    + getDateOfBirth() : String
+    + getAdmissionYear() : int
+    + getEntryScore() : double
+    + getStudyResult() : Vector<StudyResult>
+    + addStudyResult(semesterName: String, semesterAverage: double) : void
+    + getSemesterAverage(semesterName: String) : double
+}
+
+class RegularStudent {
+    + RegularStudent(studentID: String, fullName: String, dateOfBirth: String, admissionYear: int, entryScore: double) 
+    + ~RegularStudent() 
+    + showInfor() : void
+}
+
+class PartTimeStudent {
+    - trainingLocation : String
+    + PartTimeStudent(studentID: String, fullName: String, dateOfBirth: String, admissionYear: int, entryScore: double, trainingLocation: String)
+    + ~PartTimeStudent() 
+    + showInfor() : void
+    + get_Location() : String
+}
+
+class Faculty {
+    - facultyName : String
+    - students : Vector<std::unique_ptr<Student>>
+    + Faculty(name: String) 
+    + ~Faculty() 
+    + addStudent() : void
+    + getRegularStudentCount() : int
+    + defineRegularStudent(ID: String) : void
+    + showInfor() : void
+    + findTopEntryScore() : void
+    + findPartTimeStudentsByLocationInFaculty(location: String) : Vector<Student*>
+    + findHighestStudent() : Student*
+    + sortStudents() : void
+    + getStatisticsByYear() : Map<int, int>
+    + displayStatisticsByYear() : void
+    + findHighGPAStudentsInLastSemester(students: Vector<std::unique_ptr<Student>>, minGPA: double) : Vector<Student*>
+    + getFacultyName() : String
+}
+
+class School {
+    - faculties : Vector<Faculty>
+    - schoolName : String
+    + School(name: String) 
+    + ~School() 
+    + addFaculty(facultyName: String) : void
+    + showAllFaculties() : void
+    + getTotalRegularStudents() : int
+    + findHighestEntryScoreStudent() : void
+    + findPartTimeStudentsByLocation() : Vector<Student*>
+    + findHighestGPAStudent() : Vector<Student*>
+    + sort() : void
+    + displayStatisticsForAllFaculties() : void
+    + getFaculties() : Vector<Faculty>&
+}
+
+' Relationships
+Student <|-- RegularStudent
+Student <|-- PartTimeStudent
+Student "0..*" o-- StudyResult
+Faculty "0..*" o-- Student
+School "0..*" o-- Faculty
+
+@enduml

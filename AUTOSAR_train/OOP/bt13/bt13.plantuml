@@ -1,0 +1,108 @@
+@startuml Employee
+
+abstract class Employee {
+    - ID : string
+    - FullName : string
+    - BirthDay : string
+    - Phone : string
+    - Email : string
+    - Employee_type : int 
+    - Employee_count : static int
+    - Certificates : vector<Certificate *>
+    + Employee(id: const string&, fullName: const string&, birthDay: const string&, phone: const string&, email: const string&, type: int) : void
+    + ~Employee() : void
+    + virtual showMe() = 0 : void
+    + addCertificate() : void
+    + get_Id() : string
+    + get_Employee_type() : int
+    + get_Fullname() : string
+    + get_BirthDay() : string
+    + get_Phone() : string
+    + get_Email() : string
+    + set_Fullname(string fullname) : void
+    + set_Birthday(string birthday) : void
+    + set_Phone(string phone) : void
+    + set_Email(string email) : void
+    + set_ID(string Id) : void
+    + set_EmployeeType(int type) : void
+    + show_Certificate() : void
+}
+
+class Experience {
+    - ExpInYear : int
+    - ProSkill : string
+
+    + Experience(const string& id, const string& fullName, const string& birthDay,
+               const string& phone, const string& email, int type,
+               int expInYear, const string& proSkill)
+    
+    + showMe() : void
+    + set_ExInYear (int ExpInYear): void 
+    + set_Proskill(string Proskill) : void
+}
+
+class Fresher {
+    - Graduation_date : string
+    - Graduation_rank : string
+    - Education : string
+    + Fresher(const string& id, const string& fullName, const string& birthDay,
+            const string& phone, const string& email, int type,
+            const string& graduationDate, const string& graduationRank, const string& education)
+    + showMe() : void
+    + set_Graduation_date(string Graduation_date) : void
+    + set_Graduation_rank(string Graduation_rank) : void
+    + set_Education(string Education) : void
+}
+
+class Intern {
+    - Majors : string
+    - Semester : string
+    - University_name : string
+    + Intern(const string& id, const string& fullName, const string& birthDay,
+           const string& phone, const string& email, int type,
+           const string& majors, const string& semester, const string& universityName)
+    + showMe() : void
+    + set_Majors(string Major) : void
+    + set_Semester (string Semester) : void
+    + set_University_name(string University_name) : void
+
+}
+
+class Certificate {
+    - CertificatedID : string
+    - CertificateName : string
+    - CertificateRank : string
+    - CertificatedDate : string
+
+    + Certificate(const string& id, const string& name, const string& rank, const string& date)
+    + showInf() : void
+    + set_CertificatedID(string CertificatedID) : void
+    + set_CertificateName(string CertificateName) : void 
+    + set_CertificateRank(string CertificateRank) : void
+    + set_CertificatedDate(string CertificatedDate) : void
+    + get_CertificatedID() : string 
+    + get_CertificateName() :string
+    + get_CertificateRank() : string
+    + get_CertificatedDate() : string
+}
+
+class EmployeeManagement {
+    - EmployeeList : vector<Employee*>
+    + EmployeeManagement()
+    + ~EmployeeManagement()
+    + addEmployee() : void
+    + changeInfor(string Id) : void
+    + Delete(string Id) : void
+    + findIntern() : void
+    + findExperience() : void
+    + findFresher() : void
+    + showAll() : void
+}
+
+Employee <|-- Experience
+Employee <|-- Fresher
+Employee <|-- Intern
+Employee o-- "0..*" Certificate
+EmployeeManagement o--> Employee
+
+@enduml

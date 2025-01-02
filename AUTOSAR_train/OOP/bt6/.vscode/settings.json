@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "school.h": "c",
+        "ostream": "cpp"
+    }
+}

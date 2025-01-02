@@ -1,0 +1,26 @@
+
+@startuml StudentManagement
+class StudentManagement {
+    - studentManagement: vector<shared_ptr<Student>>
+
+    + addNewMember(): void
+    + showInfo(): void
+    + find(registerNumber: string): void
+}
+
+class Student{
+    - RegisNumber: string
+    - Name: string
+    - Address : string
+    - PriorLevel : int
+    - Grade : grade
+
+    + Student(std::string regis, std::string name, std::string address, int number, grade grade_v)
+    + Student()
+    + get_regis() : stringstring
+    + show_infor() : void
+}
+
+StudentManagement o--> Student
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml NeighborManagement
+
+class Person {
+    - Name : String
+    - Old : unsigned char
+    - Job : String
+    - ID : String
+    + Person(name: String, old: unsigned char, job: String, id: String)
+    + show_info() const : void
+}
+
+class Household {
+    - MemberNumber : unsigned char
+    - HouseNumber : String
+    - Persons : Vector<Person>
+    + Household(housenumber: String)
+    + add_member(person: const Person&) : void
+    + show_infor() : void
+}
+
+class NeighborManagement {
+    - NeighManage : Vector<Household>
+    + NeighborManagement()
+    + add_neighboor(household: const Household&) : void
+    + show_neighboor() : void
+}
+
+' Relationships
+NeighborManagement "1" o-- "0..*" Household
+Household "1" o-- "0..*" Person
+
+@enduml

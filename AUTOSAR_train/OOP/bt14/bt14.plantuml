@@ -1,0 +1,47 @@
+@startuml RecruitmentSystem
+
+abstract class Student {
+    - fullName : String
+    - doB : String
+    - sex : String
+    - phoneNumber : String
+    - universityName : String
+    - gradeLevel : String
+    + Student(fullName: String, doB: String, sex: String, phoneNumber: String, universityName: String, gradeLevel: String)
+    + virtual ~Student()
+    + virtual ShowMyInfor() = 0 
+    + getFullName()const :  String&
+    + getPhoneNumber() const: String&
+}
+
+class GoodStudent {
+    - gpa : float
+    - bestRewardName : String
+    + GoodStudent(fullName: String, doB: String, sex: String, phoneNumber: String, universityName: String, gradeLevel: String, gpa: float, bestRewardName: String)
+    + ShowMyInfor() const : void
+    + getGpa() : float
+}
+
+class NormalStudent {
+    - englishScore : float
+    - entryTestScore : float
+    + NormalStudent(fullName: String, doB: String, sex: String, phoneNumber: String, universityName: String, gradeLevel: String, englishScore: float, entryTestScore: float)
+    + ShowMyInfor() const : void
+    + getEntryTestScore() const : float
+    + getEnglishScore() const : float
+}
+
+class RecruitmentSystem {
+    - students : Vector<Student*>
+    + ~RecruitmentSystem()
+    + addStudent(student: Student*) : void
+    + showAllStudents() const : void
+    + recruitCandidates(numOfRecruitments: size_t) : void
+}
+
+' Relationships
+Student <|-- GoodStudent
+Student <|-- NormalStudent
+RecruitmentSystem "1" o-- "0..*" Student
+
+@enduml

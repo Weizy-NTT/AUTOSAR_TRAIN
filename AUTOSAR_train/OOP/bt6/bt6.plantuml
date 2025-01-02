@@ -1,0 +1,27 @@
+@startuml SchoolManagement
+
+class Student {
+    - Name : String
+    - Age : unsigned char
+    - Hometown : String
+    - Class : String
+    + Student(name: String, age: unsigned char, hometown: String, class_v: String)
+    + ~Student()
+    + get_age() : unsigned char
+    + get_hometown() : String
+    + showinf() : void
+}
+
+class School {
+    - school_list : Vector<std::unique_ptr<Student>>
+    + School()
+    + ~School()
+    + add_student(ptr: std::unique_ptr<Student>) : void
+    + show_student_20_old() : void
+    + show_number() : void
+}
+
+' Relationships
+School "1" o-- "0..*" Student
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml LibraryManagementDiagram
+
+class Document {
+    - DocCode: string
+    - PublisherName: string
+    - ReleaseNumber: int
+    + Document(doccode: string, publishername: string, releasenumber: int)
+    + show_all(): void
+    + get_docCode(): string
+    + ~Document()
+}
+
+class Book {
+    - AuthorName: string
+    - PageNumber: int
+    + Book(doccode: string, publishername: string, releasenumber: int, authorname: string, pagenumber: int)
+    + show_all(): void
+}
+
+class Magazine {
+    - IssueNumber: int
+    - IssueMonth: int
+    + Magazine(doccode: string, publishername: string, releasenumber: int, issuenumber: int, issuemonth: int)
+    + show_all(): void
+}
+
+class Newspaper {
+    - ReleaseDate: string
+    + Newspaper(doccode: string, publishername: string, releasenumber: int, releasedate: string)
+    + show_all(): void
+}
+
+class Library_management {
+    - LibraryManage: vector<shared_ptr<Document>>
+    + add_doc(member: shared_ptr<Document>): void
+    + delete_doc(doccode: string): void
+    + searchDocumentByType(type: string): void
+    + displayDocuments(): void
+    + ~Library_management()
+}
+
+Document <|-- Book
+Document <|-- Magazine
+Document <|-- Newspaper
+Library_management o--> Document
+
+@enduml

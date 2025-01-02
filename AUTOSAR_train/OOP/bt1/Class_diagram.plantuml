@@ -1,0 +1,47 @@
+@startuml StaffManagementDiagram
+
+class Staff {
+    - Name: string
+    - Old: int
+    - Gen: string
+    - Address: string
+    + Staff(name: string, old: int, gen: string, address: string)
+    + get_name(): string
+    + get_old(): int
+    + get_gen(): string
+    + get_address(): string
+    + print_inf(): void
+    + ~Staff()
+}
+
+class Worker {
+    - Level: int
+    + Worker(level: int, name: string, old: int, gen: string, address: string)
+    + print_inf(): void
+}
+
+class Engineer {
+    - Field: string
+    + Engineer(field: string, name: string, old: int, gen: string, address: string)
+    + print_inf(): void
+}
+
+class Employee {
+    - Job: string
+    + Employee(job: string, name: string, old: int, gen: string, address: string)
+    + print_inf(): void
+}
+
+class StaffManagement {
+    - manage: vector<Staff*>
+    + add_member(ptr: Staff*): void
+    + find(name: string): void
+    + show_all(): void
+}
+
+Staff <|-- Worker
+Staff <|-- Engineer
+Staff <|-- Employee
+StaffManagement o--> Staff
+
+@enduml
